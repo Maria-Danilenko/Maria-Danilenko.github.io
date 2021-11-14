@@ -75,5 +75,9 @@ img{width:150px;}
     margin-bottom:10px;}
     .cards{margin-top:5px;}}
 
+@media screen and (max-width:1500px){
+    img{width:200px;}}
 @media screen and (max-width:600px){
     img{width:135px;}}
+
+
