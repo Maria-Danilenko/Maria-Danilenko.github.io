@@ -46,17 +46,17 @@ function end(){
 	
 	let col11, col12, col21, col22, col31, col32;
 	
-	document.getElementById('img1-1').innerHTML = "<img src="+image[spin1(col1, col11)]+">";
-	document.getElementById('img1-2').innerHTML = "<img src="+image[col1]+">";
-	document.getElementById('img1-3').innerHTML = "<img src="+image[spin2(col1, col12)]+">";
+	setTimeout(() => document.getElementById('img1-1').innerHTML = "<img src="+image[spin1(col1, col11)]+">", 700);
+	setTimeout(() => document.getElementById('img1-2').innerHTML = "<img src="+image[col1]+">", 700);
+	setTimeout(() => document.getElementById('img1-3').innerHTML = "<img src="+image[spin2(col1, col12)]+">", 700);
 	
-    document.getElementById('img2-1').innerHTML = "<img src="+image[spin1(col2, col21)]+">";
-	document.getElementById('img2-2').innerHTML = "<img src="+image[col2]+">";
-	document.getElementById('img2-3').innerHTML = "<img src="+image[spin2(col2, col22)]+">";
+	setTimeout(() => document.getElementById('img2-1').innerHTML = "<img src="+image[spin1(col2, col21)]+">", 700);
+	setTimeout(() => document.getElementById('img2-2').innerHTML = "<img src="+image[col2]+">", 700);
+	setTimeout(() => document.getElementById('img2-3').innerHTML = "<img src="+image[spin2(col2, col22)]+">", 700);
 	
-	document.getElementById('img3-1').innerHTML = "<img src="+image[spin1(col3, col31)]+">";
-	document.getElementById('img3-2').innerHTML = "<img src="+image[col3]+">";
-	document.getElementById('img3-3').innerHTML = "<img src="+image[spin2(col3, col32)]+">";
+	setTimeout(() => document.getElementById('img3-1').innerHTML = "<img src="+image[spin1(col3, col31)]+">", 700);
+	setTimeout(() => document.getElementById('img3-2').innerHTML = "<img src="+image[col3]+">", 700);
+	setTimeout(() => document.getElementById('img3-3').innerHTML = "<img src="+image[spin2(col3, col32)]+">", 700);
 	
 	compare(col1, col2, col3);
 }
@@ -65,10 +65,10 @@ function generate(){
 	attempt+=1;
 	document.getElementById('attempts').innerHTML = "Attempt "+attempt+" of 3";
 	
-	for(let i=1; i<7; i++) animation(i*100);	
+	for(let i=0; i<6; i++) animation(i*100);	
 	end();	
 	
-	if(attempt == 3) setTimeout(() => confirm("Try again")?document.location.reload() : undefined, 1000);
+	if(attempt == 3) setTimeout(() => confirm("Try again")?document.location.reload() : undefined, 1000);	
 }
 
 
