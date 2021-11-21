@@ -18,7 +18,7 @@ function index(){
 	return Math.round(Math.random()*(image.length-1))
 }
 function compare(a, b, c){
-	if(a==b && b==c)setTimeout(() => confirm("U win")?document.location.reload() : undefined, 400);
+	if(a==b && b==c)setTimeout(() => confirm("U win")?document.location.reload() : undefined, 1000);
 }
 function animation(a){
 	let col1=index();
