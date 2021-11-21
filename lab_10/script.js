@@ -46,17 +46,17 @@ function end(){
 	
 	let col11, col12, col21, col22, col31, col32;
 	
-	setTimeout(() => document.getElementById('img1-1').innerHTML = "<img src="+image[spin1(col1, col11)]+">", 700);
-	setTimeout(() => document.getElementById('img1-2').innerHTML = "<img src="+image[col1]+">", 700);
-	setTimeout(() => document.getElementById('img1-3').innerHTML = "<img src="+image[spin2(col1, col12)]+">", 700);
+	setTimeout(() => document.getElementById('img1-1').innerHTML = "<img src="+image[spin1(col1, col11)]+">", 650);
+	setTimeout(() => document.getElementById('img1-2').innerHTML = "<img src="+image[col1]+">", 650);
+	setTimeout(() => document.getElementById('img1-3').innerHTML = "<img src="+image[spin2(col1, col12)]+">", 650);
 	
-	setTimeout(() => document.getElementById('img2-1').innerHTML = "<img src="+image[spin1(col2, col21)]+">", 700);
-	setTimeout(() => document.getElementById('img2-2').innerHTML = "<img src="+image[col2]+">", 700);
-	setTimeout(() => document.getElementById('img2-3').innerHTML = "<img src="+image[spin2(col2, col22)]+">", 700);
+	setTimeout(() => document.getElementById('img2-1').innerHTML = "<img src="+image[spin1(col2, col21)]+">", 650);
+	setTimeout(() => document.getElementById('img2-2').innerHTML = "<img src="+image[col2]+">", 650);
+	setTimeout(() => document.getElementById('img2-3').innerHTML = "<img src="+image[spin2(col2, col22)]+">", 650);
 	
-	setTimeout(() => document.getElementById('img3-1').innerHTML = "<img src="+image[spin1(col3, col31)]+">", 700);
-	setTimeout(() => document.getElementById('img3-2').innerHTML = "<img src="+image[col3]+">", 700);
-	setTimeout(() => document.getElementById('img3-3').innerHTML = "<img src="+image[spin2(col3, col32)]+">", 700);
+	setTimeout(() => document.getElementById('img3-1').innerHTML = "<img src="+image[spin1(col3, col31)]+">", 650);
+	setTimeout(() => document.getElementById('img3-2').innerHTML = "<img src="+image[col3]+">", 650);
+	setTimeout(() => document.getElementById('img3-3').innerHTML = "<img src="+image[spin2(col3, col32)]+">", 650);
 	
 	compare(col1, col2, col3);
 }
