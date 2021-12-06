@@ -60,9 +60,6 @@ input{padding:7px;
     margin-top:10px;
     font-weight:bold;}
 	
-input[type="radio"] {
-  margin: 0px -15px 0px -60px;
-}
 #r{margin-right:-60px;}
 
 .choose{display:flex;
