@@ -96,7 +96,7 @@ $(document).ready(function () {
 		"font-size":"50px",
 		"text-align":"center"});
 		
-		
+		$("#butt").prop('disabled', false); 
 	});
 });
 
@@ -119,5 +119,7 @@ $(document).ready(function () {
 		"align-content":"center",
 		"font-size":"50px",
 		"text-align":"center"});
+		
+		$("#butt").prop('disabled', true);  
 	});
 });
