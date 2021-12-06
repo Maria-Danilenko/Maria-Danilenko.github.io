@@ -27,7 +27,7 @@ body{width:100vw;
 .butt:hover {
     background-color: #edd5ff;
     color:black;}
-	@media screen and (min-width:900px){
+	@media screen and (min-width:1200px){
     .butt {height:85px;
     width:400px;
     font-size:20px;}}
