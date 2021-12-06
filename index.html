@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lab_9</title>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css">	
+    <title>Lab_11</title>
+	<link rel="stylesheet" href="style.css">    
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 </head>
-<body onload="usname()">
+<body>
+	<div class="choose">
+		Easy<input type="radio" name="radio" value="1">
+		Medium<input type="radio" name="radio" value="2">
+		Hard<input type="radio" name="radio" value="3" id="r">
+	</div>
+
+	
+	<div id="card">
+	    <div class="front">
+			<div id="question"></div>
+		</div>
+		<div class="back">
+			<div id="answer"></div>
+		</div>
+	</div>
+	
+	
+	<div id="under_card">
+		<div id="attempts"></div>
+		<div class="inp"><input type="text" id="input" placeholder="Введіть переклад"></div>
+		<button id="butt">Натисніть для перевірки</button>
+		<button id="butt1">Наступна картка</button>
+		
+		
+		<div id="result">
+			<div id="true">0</div>
+			<div id="false">0</div>
+		</div>
+	</div>
 	<script src="script.js"></script>
-	<button id="butt" onclick="generate()">Generate</button>
-	<div id="attempts"></div>
-	<div class="content">
-		<div id="us_name" class="names"></div>	
-		<div id="comp_name" class="names">Computer</div>
-	</div>
-	<div class="content">
-		<div id="us_score" class="scores">0</div>
-		<div id="comp_score" class="scores">0</div>
-	</div>
-	<div class="content">
-		<div id="us_card" class="cards"></div>
-		<div id="comp_card" class="cards"></div>
-	</div>
 	
 </body>
 </html>

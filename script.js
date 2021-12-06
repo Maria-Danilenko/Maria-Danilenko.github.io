@@ -1,111 +1,123 @@
-function usname(){
-	let name = prompt('Enter your name:', 'User');
-	document.getElementById('us_name').innerHTML = name;}
+$(document).ready(function () {
+  $("#butt").on("click", function () {
+    $("#card").flip(true);
+    setTimeout(function () {
+      $("#card").flip(false);
+    }, 1000);
+  });
+  $("#card").flip();
+  $("#question").css({"display":"flex",
+	"justify-content":"center",
+    "align-items":"center",
+    "align-content":"center",
+	"font-size":"20px",
+	"text-align":"center"});
+	$("#answer").css({"display":"flex",
+	"justify-content":"center",
+    "align-items":"center",
+    "align-content":"center",
+	"font-size":"20px",
+	"text-align":"center"});
+	document.getElementById('question').innerHTML = 'Для початку тестування натисніть "Наступна картка"';
+	document.getElementById('answer').innerHTML = 'Для початку тестування натисніть "Наступна картка"';
+	document.getElementById('attempts').innerHTML = attempts+'/10';
+});
 
-let usscore=0;
-let compscore=0;
-let attempt=0;
+let T=0;
+let F=0;
+let ind = 0;
+let attempts = 0;
+let mode = 0;
+let bool = true;
 
-let image = ["6_of_clubs.png", "6_of_diamonds.png", "6_of_hearts.png", "6_of_spades.png",
-	"7_of_clubs.png", "7_of_diamonds.png", "7_of_hearts.png", "7_of_spades.png",
-	"8_of_clubs.png", "8_of_diamonds.png", "8_of_hearts.png", "8_of_spades.png",
-	"9_of_clubs.png", "9_of_diamonds.png", "9_of_hearts.png", "9_of_spades.png",
-	"10_of_clubs.png", "10_of_diamonds.png", "10_of_hearts.png", "10_of_spades.png",
-	"jack_of_clubs2.png", "jack_of_diamonds2.png", "jack_of_hearts2.png", "jack_of_spades2.png",
-	"queen_of_clubs2.png", "queen_of_diamonds2.png", "queen_of_hearts2.png", "queen_of_spades2.png",
-	"king_of_clubs2.png", "king_of_diamonds2.png", "king_of_hearts2.png", "king_of_spades2.png",
-	"ace_of_clubs.png", "ace_of_diamonds.png", "ace_of_hearts.png", "ace_of_spades.png"];
 
-function generate(){	
-	attempt+=1;
-	document.getElementById('attempts').innerHTML = "Attempt "+attempt+" of 3";
+let easy_questions = ['body', 'leg', 'car', 'sky', 'phone', 'anime', 'card', 'game', 'enemy', 'lamp', 'energy', 'cat', 'dog', 'tree', 'flower'];
+let easy_answers = ['тіло', 'нога', 'машина', 'небо', 'телефон', 'аніме', 'картка', 'гра', 'ворог', 'лампа', 'енергія', 'кіт', 'собака', 'дерево', 'квітка'];
 
-	let uscard = Math.round(Math.random()*(image.length-1));
-	document.getElementById('us_card').innerHTML = "<img src="+image[uscard]+">";
-	
-	let compcard = Math.round(Math.random()*(image.length-1));
-	document.getElementById('comp_card').innerHTML = "<img src="+image[compcard]+">";
-	
-	if(uscard > -1 && uscard < 4){
-		usscore+=6;
-		document.getElementById('us_score').innerHTML = usscore;
-	}
-	else if(uscard > 3 && uscard < 8){
-		usscore+=7;
-		document.getElementById('us_score').innerHTML = usscore;
-	}
-	else if(uscard > 7 && uscard < 12){
-		usscore+=8;
-		document.getElementById('us_score').innerHTML = usscore;
-	}
-	else if(uscard > 11  && uscard < 16){
-		usscore+=9;
-		document.getElementById('us_score').innerHTML = usscore;
-	}
-	else if(uscard > 15 && uscard < 20){
-		usscore+=10;
-		document.getElementById('us_score').innerHTML = usscore;
-	}
-	else if(uscard > 19 && uscard < 24){
-		usscore+=2;
-		document.getElementById('us_score').innerHTML = usscore;
-	}
-	else if(uscard > 23 && uscard < 28){
-		usscore+=3;
-		document.getElementById('us_score').innerHTML = usscore;
-	}
-	else if(uscard > 24 && uscard < 32){
-		usscore+=4;
-		document.getElementById('us_score').innerHTML = usscore;
-	}
-	else{
-		usscore+=11;
-		document.getElementById('us_score').innerHTML = usscore;
-	}
-	
-	if(compcard > -1 && compcard < 4){
-		compscore+=6;
-		document.getElementById('comp_score').innerHTML = compscore;
-	}
-	else if(compcard > 3 && compcard < 8){
-		compscore+=7;
-		document.getElementById('comp_score').innerHTML = compscore;
-	}
-	else if(compcard > 7 && compcard < 12){
-		compscore+=8;
-		document.getElementById('comp_score').innerHTML = compscore;
-	}
-	else if(compcard > 11  && compcard < 16){
-		compscore+=9;
-		document.getElementById('comp_score').innerHTML = compscore;
-	}
-	else if(compcard > 15 && compcard < 20){
-		compscore+=10;
-		document.getElementById('comp_score').innerHTML = compscore;
-	}
-	else if(compcard > 19 && compcard < 24){
-		compscore+=2;
-		document.getElementById('comp_score').innerHTML = compscore;
-	}
-	else if(compcard > 23 && compcard < 28){
-		compscore+=3;
-		document.getElementById('comp_score').innerHTML = compscore;
-	}
-	else if(compcard > 24 && compcard < 32){
-		compscore+=4;
-		document.getElementById('comp_score').innerHTML = compscore;
-	}
-	else{
-		compscore+=11;
-		document.getElementById('comp_score').innerHTML = compscore;
-	}	
-	
-	if(attempt == 3){
-		if(usscore>compscore){
-			setTimeout(() => confirm("U win")?document.location.reload() : undefined, 500);}			  
-		else if(usscore<compscore){
-			setTimeout(() => confirm("Computer win")?document.location.reload() : undefined, 500);}
-		else 
-			setTimeout(() => confirm("Friendship win <3")?document.location.reload() : undefined, 500);
-	}
+let medium_questions = ['joke','attempt','citizen','crowd','influence','leak','issue','jungle','arrow','soil', 'knowledge', 'ambitious', 'molecule', 'pocket', 'monster'];
+let medium_answers = ['жарт','спроба','громадянин','натовп','вплив','витік','проблема','джунглі','стріла','грунт', 'знання', 'амбіційний', 'молекула', 'кишеньковий', 'монстр'];
+
+let hard_questions = ['courage', 'vampire', 'cartoon', 'distillery', 'housewife', 'pigeon', 'divine', 'impact', 'remuneration', 'prejudice', 'onomatopoeia', 'thunderstorm', 'penitentiary', 'platypus', 'multistory'];
+let hard_answers = ['сміливість', 'вампір', 'мультик', 'винокурня', 'домогосподарка', 'голуб', 'божественний', 'імпульс', 'винагорода', 'упередження', 'звукознавство', 'гроза', 'виправний', 'качкодзьоб', 'багатоповерховий'];
+
+let used_idx = [];
+while (used_idx.length < 15) {
+	let index = Math.floor(Math.random() * (easy_questions.length));
+		if (used_idx.indexOf(index) === -1) used_idx.push(index);
 }
+let questions = [];
+let answers = [];
+
+$(document).ready(function () {
+	$("#butt1").on("click", function () {
+		if ($('input[name="radio"]').is(':checked')){
+			mode = $('input[name="radio"]:checked').val();
+			$('input[name="radio"]').prop('disabled', true);
+		}
+		else {
+			alert('Будь ласка, оберіть складність');
+			return;
+		}
+		++attempts;
+		if(attempts>10){
+			if(T<3) {confirm("У вас все ще попереду!")?document.location.reload() : undefined; return;}
+			if(T<5) {confirm("Ви вже на половині шляху! Не здавайтесь!")?document.location.reload() : undefined; return;}
+			if(T<8){ confirm("Вам залишилось зовсім трошки до ідеалу!")?document.location.reload() : undefined; return;}
+			if(T<11) {confirm("О, як я бачу, Ви з Англії?")?document.location.reload() : undefined; return;}
+			}
+		
+		ind = attempts-1;
+		document.getElementById('attempts').innerHTML = attempts+'/10';        
+		
+		if(mode==1){questions.push(easy_questions[used_idx[ind]]);
+			answers.push(easy_answers[used_idx[ind]]);
+		}
+		else if(mode==2) {questions.push(medium_questions[used_idx[ind]]);
+			answers.push(medium_answers[used_idx[ind]]);
+		}
+		else if (mode==3) {questions.push(hard_questions[used_idx[ind]]);
+			answers.push(hard_answers[used_idx[ind]]);
+		}
+		
+		document.getElementById('question').innerHTML = questions[ind];
+		document.getElementById('answer').innerHTML = answers[ind];	
+		
+		
+		$("#question").css({"display":"flex",
+		"justify-content":"center",
+		"align-items":"center",
+		"align-content":"center",
+		"font-size":"50px",
+		"text-align":"center"});
+		$("#answer").css({"display":"flex",
+		"justify-content":"center",
+		"align-items":"center",
+		"align-content":"center",
+		"font-size":"50px",
+		"text-align":"center"});
+		
+		
+	});
+});
+
+
+$(document).ready(function () {
+	$("#butt").on("click", function () {
+		let us_answer = document.getElementById("input").value;
+		if(us_answer!=answers[ind]){document.getElementById('false').innerHTML = ++F;}
+		else {document.getElementById('true').innerHTML = ++T;}
+	
+		$("#question").css({"display":"flex",
+		"justify-content":"center",
+		"align-items":"center",
+		"align-content":"center",
+		"font-size":"50px",
+		"text-align":"center"});
+		$("#answer").css({"display":"flex",
+		"justify-content":"center",
+		"align-items":"center",
+		"align-content":"center",
+		"font-size":"50px",
+		"text-align":"center"});
+	});
+});
